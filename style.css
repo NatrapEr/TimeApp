@@ -1,0 +1,451 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: bold;
+  src: url(../TimeApp/source/Roboto/Roboto.ttf);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ff8800;
+    color: #686868;
+    font-size: 1rem;
+}
+
+body.light-theme {
+    background-color: #bd6500;
+    color: #000000;
+    text-decoration-color: #686868;
+    transition: all 1s ease;
+}
+
+body.dark-theme {
+    background-color: #170041;
+    color: #ffffff;
+    text-decoration-color: #ffffff;
+    transition: all 1s ease;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.nav-container, .time-container, .timer-container, .watch-container,  .alarm-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+    margin-bottom: 0.5rem;
+}
+
+a.light-theme {
+  color: #000000;
+  transition: all 1s ease;
+}
+a.dark-theme {
+  color: #ffffff;
+  transition: all 1s ease;
+}
+
+.nav-container {
+    font-size: 2rem;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.time-container {
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#id_clock {
+    font-size: 5rem;
+    cursor: pointer;
+}
+
+button {
+    font-size: 1rem;
+    line-height: 114%;
+    color: #686868;
+    text-decoration: none;
+    padding: 1rem 1rem;
+    border-radius: .8rem;
+    margin-bottom: 0.1rem;
+}
+
+#themeToggle.dark-theme {
+    width: 5rem;
+    height: 5rem;
+    background-image: url("../TimeApp/source/moon-svgrepo-com.svg");
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 5rem 5rem;
+}
+
+#themeToggle.light-theme {
+    width: 5rem;
+    height: 5rem;
+    background-image: url("../TimeApp/source/sun-svgrepo-com.svg");
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 5rem 5rem;
+}
+
+.timer-container {
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.tim-elem:nth-child(n) {
+  margin-right: 1.5rem;
+}
+
+.tim-elem:nth-child(4), .tim-elem:nth-child(5) {
+  margin-right: 0;
+}
+
+.timer-container, .watch-container, .alarm-container {
+    display: none;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.tim-elem {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#days, #hours, #minutes, #seconds{
+    width: 2.5rem;
+}
+
+.timer-display {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.watch-container { 
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#stopwatch {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.alarm-container {
+    font-size: 2rem;
+}
+
+.current-time {
+    margin-bottom: 0.5rem;
+}
+
+button {
+  background-color: #fff;
+  border: 0 solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: #0d172a;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 1rem 1.6rem;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+  text-decoration-thickness: auto;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover {
+  background-color: #1e293b;
+  color: #fff;
+}
+
+.time-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  font-family: "Courier New", monospace;
+  color: #fff;
+  font-size: 1em;
+  width: 18em;
+}
+
+.time-input-label {
+  text-shadow: 1px 1px #000;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.time-input {
+  appearance: none;
+  border: none;
+  padding: 0.6em;
+  font-size: 1em;
+  font-family: "Courier New", monospace;
+  color: #fff;
+  background: #ff6b35;
+  image-rendering: pixelated;
+  box-shadow:
+    0 0 0 0.15em #000,
+    0 0 0 0.3em #fff,
+    0 0 0 0.45em #000,
+    0 0.3em 0 0 #d1451e,
+    0 0.3em 0 0.15em #000;
+  outline: none;
+  transition: all 0.15s steps(1);
+  text-shadow: 1px 1px #000;
+}
+
+.time-input::placeholder {
+  color: #fff;
+  opacity: 0.6;
+}
+
+.time-input:focus {
+  background: #ff8c42;
+  box-shadow:
+    0 0 0 0.15em #000,
+    0 0 0 0.3em #fff,
+    0 0 0 0.45em #000,
+    0 0.2em 0 0 #00cc66,
+    0 0.2em 0 0.15em #000;
+}
+
+.time-input:hover {
+  animation: time-input 0.3s steps(2) infinite;
+}
+
+/* Glitch animation */
+@keyframes time-input {
+  0% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(-1px, 1px);
+  }
+  50% {
+    transform: translate(1px, -1px);
+  }
+  75% {
+    transform: translate(-1px, -1px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+#days, #hours, #minutes, #seconds {
+  width: 3.5rem;
+  appearance: none;
+  border: none;
+  padding: 0.6em;
+  font-size: 1em;
+  font-family: "Courier New", monospace;
+  color: #fff;
+  background: #ff6b35;
+  image-rendering: pixelated;
+  box-shadow:
+    0 0 0 0.15em #000,
+    0 0 0 0.3em #fff,
+    0 0 0 0.45em #000,
+    0 0.3em 0 0 #d1451e,
+    0 0.3em 0 0.15em #000;
+  outline: none;
+  transition: all 0.15s steps(1);
+  text-shadow: 1px 1px #000;
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.current-time, .alarm-status {
+  display: none;
+}
+
+.time-input {
+  margin-bottom: 1.5rem;
+}
+
+.alarm-section {
+  margin-top: 1rem;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Background animation */
+
+.back,
+.back:before{
+  --s: 56px; /* control the size */
+  --g: 10px; /* control the gap */
+  --c: #ECD078; /* first color */
+  
+  --_l: #0000 calc(33% - .866*var(--g)),var(--c) calc(33.2% - .866*var(--g)) 33%,#0000 34%;
+  background:
+    repeating-linear-gradient(var(--c) 0 var(--g), #0000 0 50%)
+     0 calc(.866*var(--s) - var(--g)/2),
+    conic-gradient(from -150deg at var(--g) 50%,var(--c) 120deg,#0000 0),
+    linear-gradient(-120deg,var(--_l)),linear-gradient( -60deg,var(--_l))
+    #0B486B; /* second color */
+  background-size: var(--s) calc(3.466*var(--s));
+  animation: p infinite 2s linear;
+}
+.back:before {
+  content: "";
+  opacity: 0.1;
+  position: absolute;
+  inset: 0;
+  --webkit-mask: 
+    linear-gradient(#000 50%,#0000 0) 
+    0 calc(.866*var(--s))/100% calc(3.466*var(--s));
+  animation-direction: reverse;
+
+}
+
+@keyframes p {
+  to {
+    background-position-x: calc(-1*var(--s));
+  }
+}
+
+/* Flexibility */
+
+@media (max-width: 4416px) {
+  #days, #hours, #minutes, #seconds {
+    width: 100px;
+    margin-right: 100px;
+  }
+  #seconds {
+    margin-right: 0;
+  }
+  button {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 3840px) {
+  .nav-container {
+    font-size: 2rem;
+  }
+  #days, #hours, #minutes, #seconds {
+    width: 50px;
+    margin-right: 50px;
+  }
+  #seconds {
+    margin-right: 0;
+  }
+  button {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 1920px) {
+  .nav-container {
+    font-size: 32px;
+  }
+  #id_clock {
+    font-size: 80px;
+  }
+  #days, #hours, #minutes, #seconds {
+    width: 3.5rem;
+    margin-right: 0;
+  }
+  button {
+    font-size: 1.1rem;
+  }
+  #themeToggle {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .time-container {
+    flex-direction: row-reverse;
+  }
+  button {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+    .nav-container {
+    flex-direction: column;
+    margin: 0;
+  }
+}
+
+@media (max-width: 443px) {
+  .time-container {
+    flex-direction: column-reverse;
+  }
+    #themeToggle {
+    width: 100%;
+    height: 100%;
+  }
+  #id_clock, .timer-display, #stopwatch {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+    button {
+    display: flex;
+  }
+}
+
+@media (max-width: 320px) {
+  .tim-elem:nth-child(n) {
+    margin: 0;
+    margin-bottom: 1.5rem;
+  }
+  .input-group {
+    flex-direction: column;
+  }
+  .timer-display {
+    font-size: 2.5rem;
+  }
+  #alarmTime {
+    width: 180px;
+  }
+}

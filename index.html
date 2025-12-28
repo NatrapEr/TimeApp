@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="..//TimeApp/style.css">
+    <title>TimeApp</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#/timer" class="light-theme" id="link-1">Таймер</a>
+                <a href="#/stopwatch" class="light-theme" id="link-2">Секундомер</a>
+                <a href="#/alarm" class="light-theme" id="link-3">Будильник</a>                    
+            </div>
+            <div class="time-container">
+                <div id="id_clock" class="clocking"></div>
+                <button id="themeToggle" class="light-theme"></button> 
+            </div>   
+        </div>
+    </header>
+
+    <main>
+    <div class="container">
+        <div class="timer-container" id="tc">
+        <div class="input-group">
+            <div class="tim-elem">
+                <input type="number" id="days" min="0" value="0">
+            </div>
+            <div class="tim-elem">
+                <input type="number" id="hours" min="0" max="23" value="0">
+            </div>
+            <div class="tim-elem">
+                <input type="number" id="minutes" min="0" max="59" value="0">
+            </div>
+            <div class="tim-elem">
+                <input type="number" id="seconds" min="0" max="59" value="0">
+            </div>
+        </div>
+        
+        <div class="timer-display" id="display">00:00:00:00</div>
+
+        <audio id="timerSound" src="../TimeApp/source/alarm-sound.mp3" preload="auto"></audio>
+        
+        <div class="buttons">
+            <button id="startBtn">Старт</button>
+            <button id="pauseBtn" disabled>Пауза</button>
+            <button id="resetBtn" disabled>Сброс</button>
+        </div>
+        
+
+        </div>
+    </div>
+
+    <div class="container">
+            <div class="watch-container" id="wc">
+                <span id="stopwatch">00:00:00</span>
+                <div class="watch-buttons">
+                    <button id="startBtnn">Старт</button>
+                    <button id="pauseBtnn" disabled>Пауза</button>
+                    <button id="resetBtnn" disabled>Сброс</button>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer>
+    <div class="container">
+        <div class="alarm-container" id="ac">
+            <div class="current-time">
+                Текущее время: <span id="currentTime">--:--:--</span>
+            </div>
+                <input type="time" id="alarmTime" class="time-input">
+            <div class="alarm-section">
+                <button onclick="setAlarm()" class="btn">Установить</button>
+                <button onclick="stopAlarm()" class="btn stop">Остановить</button>              
+            </div>
+
+            <div class="alarm-status">
+                Статус: <span id="alarmStatus">Не установлен</span>
+            </div>
+
+            <audio id="alarmSound" src="../TimeApp/source/alarm-sound.mp3" preload="auto"></audio>
+        </div>    
+    </div>
+    <div class="back"></div>
+    </footer>  
+
+    <script src="../TimeApp/main.js"></script>
+</body>
+</html>
